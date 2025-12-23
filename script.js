@@ -1,11 +1,10 @@
-const volSlider = document.getElementById("volSlider");
-const volValue = document.getElementById("volValue");
-
-volSlider.addEventListener("input", () => {
-	const vol = Number(volSlider.value);
-	video.volume = vol;
-	volValue.textContent = vol.toFixed(2);
-});
+// FPS, Volume 저장
+const cookieFPS = document.cookie
+	.split("; ")
+	.find((row) => row.startsWith("bad-apple-emoji-fps="));
+const cookieVol = document.cookie
+	.split("; ")
+	.find((row) => row.startsWith("bad-apple-emoji-vol="));
 
 const videoInput = document.getElementById("videoInput");
 const video = document.getElementById("video");
@@ -13,6 +12,24 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const output = document.getElementById("output");
 const playPauseBtn = document.getElementById("playPause");
+
+const volSlider = document.getElementById("volSlider");
+const volValue = document.getElementById("volValue");
+
+if (cookieVol) {
+	const vol = Number(cookieVol.split("=")[1]);
+	video.volume = vol;
+	volSlider.value = vol;
+	volValue.textContent = vol.toFixed(2);
+}
+
+volSlider.addEventListener("input", () => {
+	const vol = Number(volSlider.value);
+	video.volume = vol;
+	volValue.textContent = vol.toFixed(2);
+
+	document.cookie = `bad-apple-emoji-vol=${vol}; max-age=31536000; path=/`;
+});
 
 // 이모지 규칙
 const BACKGROUND = "🌕";
@@ -36,10 +53,18 @@ const fpsValue = document.getElementById("fpsValue");
 const FRAME_WIDTH = 60;
 let FPS = 5;
 
+if (cookieFPS) {
+	FPS = Number(cookieFPS.split("=")[1]);
+	fpsSlider.value = FPS;
+	fpsValue.textContent = FPS;
+}
+
 // 슬라이더 이벤트
 fpsSlider.addEventListener("input", () => {
 	FPS = Number(fpsSlider.value);
 	fpsValue.textContent = FPS;
+
+	document.cookie = `bad-apple-emoji-fps=${FPS}; max-age=31536000; path=/`;
 });
 
 // --- 재생 / 일시정지 + 소리 동기 ---
