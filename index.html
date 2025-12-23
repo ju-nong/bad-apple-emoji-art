@@ -26,6 +26,20 @@
 		<meta property="og:site_name" content="bad-apple-emoji-art" />
 	</head>
 	<body>
+		<!-- 700px 미만 해상도 안내 오버레이 -->
+		<div class="resolution-warning">
+			<div class="warning-content">
+				<div class="warning-icon">📱🔄️</div>
+				<h2>화면이 너무 작습니다</h2>
+				<p class="mobile-message">
+					모바일 기기라면 가로 모드로 회전해주세요!
+				</p>
+				<p class="desktop-message">
+					이 사이트는 700px 이상의 해상도에서만 지원됩니다.
+				</p>
+			</div>
+		</div>
+
 		<video id="video" src="./bad-apple.mp4" style="display: none"></video>
 		<canvas id="canvas" style="display: none"></canvas>
 		<pre id="output"></pre>
@@ -48,6 +62,17 @@
 				/>
 			</div>
 		</div>
+
+		<!-- Copyright / 원본 영상 링크 -->
+		<footer class="copyright">
+			<a
+				href="https://www.youtube.com/watch?v=FtutLA63Cp8"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				🎵 Original Video: Bad Apple!! - YouTube
+			</a>
+		</footer>
 
 		<script src="./script.js"></script>
 	</body>

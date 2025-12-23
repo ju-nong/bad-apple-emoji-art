@@ -106,15 +106,108 @@ pre#output {
 	white-space: pre;
 	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
-/* 
-pre {
-	font-family: "TossFaceFontWeb";
-	font-size: 12px;
-	line-height: 1;
-	letter-spacing: -3px;
-	white-space: pre;
+
+/* 700px 미만 해상도 경고 오버레이 */
+.resolution-warning {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+	z-index: 9999;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 20px;
 }
 
-button:disabled {
-	opacity: 0.5;
-} */
+.warning-content {
+	max-width: 400px;
+	padding: 40px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 20px;
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.warning-icon {
+	font-family: "TossFaceFontWeb";
+	font-size: 64px;
+	margin-bottom: 20px;
+	animation: rotate-hint 2s ease-in-out infinite;
+}
+
+@keyframes rotate-hint {
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(-15deg);
+	}
+	75% {
+		transform: rotate(15deg);
+	}
+}
+
+.warning-content h2 {
+	font-family: "TossFaceFontWeb", sans-serif;
+	font-size: 24px;
+	margin-bottom: 16px;
+	color: #fff;
+}
+
+.warning-content p {
+	font-family: "TossFaceFontWeb", sans-serif;
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.8);
+	line-height: 1.6;
+}
+
+.mobile-message {
+	display: none;
+}
+
+.desktop-message {
+	display: block;
+}
+
+/* 모바일 디바이스 감지 (터치 지원 기기) */
+@media (pointer: coarse) {
+	.mobile-message {
+		display: block;
+	}
+	.desktop-message {
+		display: none;
+	}
+}
+
+/* 700px 미만일 때 오버레이 표시 */
+@media (max-width: 699px) {
+	.resolution-warning {
+		display: flex;
+	}
+}
+
+/* Copyright / Footer 스타일 */
+.copyright {
+	margin-top: 20px;
+	padding: 15px 0;
+	text-align: center;
+}
+
+.copyright a {
+	font-family: "TossFaceFontWeb", sans-serif;
+	color: rgba(255, 255, 255, 0.6);
+	text-decoration: none;
+	font-size: 14px;
+	transition: color 0.2s ease;
+}
+
+.copyright a:hover {
+	color: rgba(255, 255, 255, 0.9);
+	text-decoration: underline;
+}
