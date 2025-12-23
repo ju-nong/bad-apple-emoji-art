@@ -7,22 +7,28 @@
 		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
-		<button id="playPause" disabled>▶ 재생/일시정지</button>
-		<label>FPS: <span id="fpsValue">5</span></label>
-		<input type="range" id="fpsSlider" min="1" max="30" value="5" />
-		<label>볼륨: <span id="volValue">1</span></label>
-		<input
-			type="range"
-			id="volSlider"
-			min="0"
-			max="1"
-			step="0.01"
-			value="1"
-		/>
-
 		<video id="video" src="./bad-apple.mp4" style="display: none"></video>
 		<canvas id="canvas" style="display: none"></canvas>
 		<pre id="output"></pre>
+
+		<div class="controls">
+			<button id="playPause" disabled>▶️</button>
+			<div class="slider-group">
+				<label>FPS: <span id="fpsValue">5</span></label>
+				<input type="range" id="fpsSlider" min="1" max="30" value="5" />
+			</div>
+			<div class="slider-group">
+				<label>Volume: <span id="volValue">1</span></label>
+				<input
+					type="range"
+					id="volSlider"
+					min="0"
+					max="1"
+					step="0.01"
+					value="1"
+				/>
+			</div>
+		</div>
 
 		<script src="./script.js"></script>
 	</body>

@@ -171,7 +171,7 @@ function playFrame() {
 
 playPauseBtn.addEventListener("click", () => {
 	isPlaying = !isPlaying;
-	playPauseBtn.textContent = isPlaying ? "⏸ 일시정지" : "▶ 재생";
+	playPauseBtn.textContent = isPlaying ? "⏸️" : "▶️";
 
 	if (isPlaying) {
 		// 비디오 소리 재생 시작
