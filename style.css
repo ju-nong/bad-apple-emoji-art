@@ -13,7 +13,6 @@
 }
 
 body {
-	/* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 	background-color: #1e1e1e;
 	color: #fff;
 	display: flex;
@@ -32,13 +31,14 @@ body {
 }
 
 button {
+	font-family: "TossFaceFontWeb";
 	background-color: #3a3a3a;
 	border: none;
 	color: #fff;
-	padding: 10px 20px;
+	padding: 2px;
 	border-radius: 8px;
 	cursor: pointer;
-	font-size: 16px;
+	font-size: 34px;
 	transition: 0.2s;
 }
 
@@ -57,7 +57,12 @@ button:disabled {
 	align-items: center;
 }
 
+label {
+	font-family: "TossFaceFontWeb";
+}
+
 input[type="range"] {
+	font-family: "TossFaceFontWeb";
 	-webkit-appearance: none;
 	width: 150px;
 	height: 6px;
@@ -86,11 +91,13 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 pre#output {
+	text-align: center;
+	font-family: "TossFaceFontWeb";
 	background-color: #000;
 	color: #fff;
 	padding: 15px;
 	border-radius: 10px;
-	max-width: 800px;
+	max-width: 665px;
 	width: 100%;
 	max-height: 600px;
 	font-size: 12px;
